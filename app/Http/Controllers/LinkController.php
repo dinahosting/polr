@@ -21,7 +21,7 @@ class LinkController extends Controller {
 
     public function performShorten(Request $request) {
         if (env('SETTING_SHORTEN_PERMISSION') && !self::isLoggedIn()) {
-            return redirect(route('index'))->with('error', 'You must be logged in to shorten links.');
+            return redirect(route('index'))->with('error', 'Saioa hasia izan behar duzu estekak laburtzeko.');
         }
 
         $this->request = $request;
@@ -56,7 +56,7 @@ class LinkController extends Controller {
 
         if ($link->is_disabled == 1) {
             return view('error', [
-                'message' => 'Sorry, but this link has been disabled by an administrator.'
+                'message' => 'Sentitzen dugu, baina administratzaile batek desgaitu egin du esteka hau.'
             ]);
         }
 
@@ -88,6 +88,6 @@ class LinkController extends Controller {
 
         LinkHelper::processPostClick($link);
 
-        return redirect()->to($long_url);
+        return redirect($long_url, 301);
     }
 }

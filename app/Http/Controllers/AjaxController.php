@@ -131,7 +131,7 @@ class AjaxController extends Controller {
     }
 
     public function deleteLink(Request $request) {
-        self::ensureAdmin();
+        //self::ensureAdmin();  // #jlg 03/02/2017 permitimos eliminar el link a los usuarios
 
         $link_ending = $request->input('link_ending');
         $link = LinkHelper::linkExists($link_ending);
@@ -145,7 +145,7 @@ class AjaxController extends Controller {
     }
 
     public function toggleLink(Request $request) {
-        self::ensureAdmin();
+        //self::ensureAdmin();  // #jlg 03/02/2017 permitimos habilitar/deshabilitar el link a los usuarios
 
         $link_ending = $request->input('link_ending');
         $link = LinkHelper::linkExists($link_ending);
@@ -167,6 +167,6 @@ class AjaxController extends Controller {
 
         $link->save();
 
-        return ($new_status ? "Enable" : "Disable");
+        return ($new_status ? "Gaitu" : "Ezgaitu");
     }
 }

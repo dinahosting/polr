@@ -39,11 +39,19 @@ class LinkFactory {
         * @return string $formatted_link
         */
 
+        /**
+        * vrodriguez@dinahosting.com, 2016-11-29
+        * FIX: if long_url has no protocol (protocol://long.url/to/short), use http://  
+        */
+        if ( !preg_match('/^\w+\:\/{2,}/', $long_url) ) {
+            $long_url = 'http://' . $long_url;
+        }
+
         $is_already_short = LinkHelper::checkIfAlreadyShortened($long_url);
 
         if ($is_already_short) {
-            throw new \Exception('Sorry, but your link already
-                looks like a shortened URL.');
+            throw new \Exception('Zure estekak badu dagoeneko
+                URL laburtuaren itxura.');
         }
 
         if (!$is_secret && !$custom_ending && (LinkHelper::longLinkExists($long_url) !== false)) {
@@ -57,13 +65,13 @@ class LinkFactory {
             // has custom ending
             $ending_conforms = LinkHelper::validateEnding($custom_ending);
             if (!$ending_conforms) {
-                throw new \Exception('Sorry, but custom endings
-                    can only contain alphanumeric characters, hyphens, and underscores.');
+                throw new \Exception('Amaiera pertsonalizatuek karaktere
+                    alfanumerikoak, marratxoak eta azpimarrak bakarrik izan ditzakete.');
             }
 
             $ending_in_use = LinkHelper::linkExists($custom_ending);
             if ($ending_in_use) {
-                throw new \Exception('Sorry, but this URL ending is already in use.');
+                throw new \Exception('URL amaiera hori erabilita dago dagoeneko.');
             }
 
             $link_ending = $custom_ending;

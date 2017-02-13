@@ -1,7 +1,7 @@
-@extends('layouts.base')
-
-@section('content')
-<h1>500</h1>
-<p>Oh dear. Something seems to have gone awry.</p>
-<h4>Please contact an administrator to report this issue.</h4>
-@endsection
+@extends('layouts.base') @section('css')
+<h1>500
+</h1>
+<p>Ene! Badirudi zerbait oker egin dela.
+</p>
+<h4>Arren, jarri harremanetan administratzaile batekin, arazoaren berri emateko.
+</h4>@endsection

@@ -13,6 +13,7 @@ $app->get('/', ['as' => 'index', 'uses' => 'IndexController@showIndexPage']);
 $app->get('/logout', ['as' => 'logout', 'uses' => 'UserController@performLogoutUser']);
 $app->get('/login', ['as' => 'login', 'uses' => 'UserController@displayLoginPage']);
 $app->get('/about', ['as' => 'about', 'uses' => 'StaticPageController@displayAbout']);
+$app->get('/apidoc', ['as' => 'apidoc', 'uses' => 'StaticPageController@displayApiDoc']);
 $app->get('/signup', ['as' => 'signup', 'uses' => 'UserController@displaySignupPage']);
 $app->get('/lost_password', ['as' => 'lost_password', 'uses' => 'UserController@displayLostPasswordPage']);
 $app->get('/activate/{username}/{recovery_key}', ['as' => 'activate', 'uses' => 'UserController@performActivation']);

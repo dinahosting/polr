@@ -1,21 +1,17 @@
-<h3>Hello {{$username}}!</h3>
-
-<p>
-    You may use the link located in this email to reset your password for your
-    account at {{env('APP_NAME')}}.
+<h3>Kaixo, {{$username}}!
+</h3>
+<p>Eskerrik asko {{env('APP_NAME')}} aplikazioan erregistratzeagatik. Zure kontua erabiltzeko, aktibatu egin behar duzu esteka hau sakatuz:
 </p>
+<br /> 
 
 <a href='{{env('APP_PROTOCOL')}}{{env('APP_ADDRESS')}}/reset_password/{{$username}}/{{$recovery_key}}'>
     {{env('APP_PROTOCOL')}}{{env('APP_ADDRESS')}}/reset_password/{{$username}}/{{$recovery_key}}
 </a>
 
-<br />
 
-<p>Thanks,</p>
-<p>The {{env('APP_NAME')}} team.</p>
-
---
 <br />
-You received this email because someone with the IP {{$ip}} requested a password reset
-for an account at {{env('APP_PROTOCOL')}}{{env('APP_ADDRESS')}}. If this was not you,
-you may ignore this email.
+<p>Eskerrik asko.
+</p>
+<p>{{env('APP_NAME')}} aplikazioaren lantaldea.
+</p>-- 
+<br /> {{$ip}} IPa duen norbait {{env('APP_PROTOCOL')}}{{env('APP_ADDRESS')}} helbideko kontu batean erregistratu da, eta horregatik jaso duzu mezu hau. Zu izan ez bazara, ez egin jaramonik mezu honi.

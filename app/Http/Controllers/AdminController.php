@@ -15,7 +15,7 @@ class AdminController extends Controller {
      */
     public function displayAdminPage(Request $request) {
         if (!$this->isLoggedIn()) {
-            return redirect(route('login'))->with('error', 'Please login to access your dashboard.');
+            return redirect(route('login'))->with('error', 'Hasi saioa arbelera sartzeko.');
         }
 
         $username = session('username');
@@ -25,18 +25,18 @@ class AdminController extends Controller {
         $admin_links = null;
 
         if ($this->currIsAdmin()) {
-            $admin_users = User::paginate(15);
-            $admin_links = Link::paginate(15);
+            $admin_users = User::paginate(15,['*'],'admin-users');
+            $admin_links = Link::paginate(15,['*'],'admin-links');
         }
 
         $user = UserHelper::getUserByUsername($username);
 
         if (!$user) {
-            return redirect(route('index'))->with('error', 'Invalid or disabled account.');
+            return redirect(route('index'))->with('error', 'Kontua ez da baliozkoa, edo desgaituta dago.');
         }
 
         $user_links = Link::where('creator', $username)
-            ->paginate(15);
+            ->paginate(15,['*'],'user-links');
 
         return view('admin', [
             'role' => $role,
@@ -60,7 +60,7 @@ class AdminController extends Controller {
 
         if (UserHelper::checkCredentials($username, $old_password) == false) {
             // Invalid credentials
-            return redirect('admin')->with('error', 'Current password invalid. Try again.');
+            return redirect('admin')->with('error', 'Uneko pasahitza ez da baliozkoa. Saiatu berriro.');
         }
         else {
             // Credentials are correct
@@ -68,7 +68,7 @@ class AdminController extends Controller {
             $user->password = Hash::make($new_password);
             $user->save();
 
-            $request->session()->flash('success', "Password changed successfully.");
+            $request->session()->flash('success', "Pasahitza behar bezala aldatu da.");
             return redirect(route('admin'));
         }
     }

@@ -21,21 +21,21 @@ $(function() {
             },
             dataType: "html"
         });
-        $('#link-availability-status').html('<span><i class="fa fa-spinner"></i> Loading</span>');
+        $('#link-availability-status').html('<span><i class="fa fa-spinner"></i> Kargatzen</span>');
         request.done(function(msg) {
             if (msg == 'unavailable') {
-                $('#link-availability-status').html(' <span style="color:red"><i class="fa fa-ban"></i> Already in use</span>');
+                $('#link-availability-status').html(' <span style="color:red"><i class="fa fa-ban"></i> Erabilita dagoeneko</span>');
             } else if (msg == 'available') {
-                $('#link-availability-status').html('<span style="color:green"><i class="fa fa-check"></i> Available</span>');
+                $('#link-availability-status').html('<span style="color:green"><i class="fa fa-check"></i> Eskuragarri</span>');
             } else if (msg == 'invalid') {
-                $('#link-availability-status').html('<span style="color:orange"><i class="fa fa-exclamation-triangle"></i> Invalid Custom URL Ending</span>');
+                $('#link-availability-status').html('<span style="color:orange"><i class="fa fa-exclamation-triangle"></i> URL pertsonalizatuaren amaiera baliogabea</span>');
             } else {
-                $('#link-availability-status').html(' <span style="color:red"><i class="fa fa-exclamation-circle"></i> An error occured. Try again</span>' + msg);
+                $('#link-availability-status').html(' <span style="color:red"><i class="fa fa-exclamation-circle"></i> Errorea gertatu da. Saiatu berriro</span>' + msg);
             }
         });
 
         request.fail(function(jqXHR, textStatus) {
-            $('#link-availability-status').html(' <span style="color:red"><i class="fa fa-exclamation-circle"></i> An error occured. Try again</span>' + textstatus);
+            $('#link-availability-status').html(' <span style="color:red"><i class="fa fa-exclamation-circle"></i> Errorea gertatu da. Saiatu berriro</span>' + textstatus);
         });
     });
     min = 1;
@@ -54,10 +54,10 @@ $(function() {
     function changeTips(tcase) {
         switch (tcase) {
             case 1:
-                setTip('Create an account to keep track of your links');
+                setTip('Sortu kontu bat zure esteken jarraipena egiteko');
                 break;
             case 2:
-                setTip('Did you know you can change the URL ending by clicking on "Link Options"?');
+                setTip('URLaren amaiera alda dezakezu "Esteken aukerak” sakatuta');
                 i = 1;
                 break;
         }

@@ -1,19 +1,41 @@
+/**
+Font: !Sketchy Times
+LICENSE: https://labur.eus/fonts/sketchytimes/LICENSE.txt
+*/
+
+@font-face {
+    font-family: "SketchyTimes";
+    src: url("/fonts/sketchytimes/sketchytimes-b.ttf") format("truetype");
+}
+
+/**
+Font: Dancing Script
+LICENSE: OFL - https://labur.eus/fonts/dancing/OFL.txt
+*/
+@font-face {
+    font-family: "DancingScript";
+    src: url("/fonts/dancing/DancingScript-Bold.ttf") format("truetype");
+}
+
+h1{
+    font-family: "SketchyTimes", sans-serif;
+    font-size: 125px !important;
+
+}
+
 .custom-url-field {
     display: inline;
     width: 100px;
 }
 
 .site-url-field {
-    color: green;
+    /*color: green;*/
     display: inline;
 }
 
-.long-link-input {
-    margin-bottom: 25px;
-}
-
 .tips {
-    margin-top: 20px;
+    margin-top: 10px;
+    margin-bottom: 20px;
 }
 
 .check-btn {
@@ -26,4 +48,82 @@
 
 .visibility-toggler {
     margin-bottom: 2em;
+}
+
+.text-muted {
+    color: black;
+    text-shadow: 2px 2px rgba(190,190,190,0.4);
+    /*font-size: 22px;
+    font-family: "DancingScript", sans-serif;*/
+}
+
+.formulario {
+    background: rgba(155, 155, 155, 0.5);
+    border-radius: 10px 10px 10px 10px;
+    padding: 15px;
+}
+
+.btn-acortador,
+.btn-acortador:hover,
+.btn-acortador:active {
+    width: 79px;
+    height: 47px;
+    background-image: url("/img/boton.png");
+}
+
+.linkOptions,
+.linkOptions:active,
+.linkOptions:visited,
+.linkOptions:hover {
+    color: #e65757;
+    padding-top: 60px;
+    display: block;
+}
+
+
+@media (max-width: 768px) {
+    .btn-acortador {
+        margin-top: 10px;
+    }
+
+    .linkOptions,
+    .linkOptions:active,
+    .linkOptions:visited,
+    .linkOptions:hover {
+        padding-top: 15px;
+    }
+}
+
+@media (max-width: 420px) {
+    h1 {
+        font-size: 90px !important;
+    }
+}
+
+
+body {
+    /**background-image: none;*/
+    padding-bottom: 0;
+}
+
+.optionPadding {
+    padding-top: 15px;
+}
+
+.divAvailability {
+    height: 60px;
+}
+
+.buttonSpaceTop {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.dinalogo {
+    height: 40px;
+    margin-right: 35px;
+}
+
+.euslogo {
+    height:65px;
 }

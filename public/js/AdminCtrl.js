@@ -33,7 +33,7 @@ polr.controller('AdminCtrl', function($scope, $compile) {
         apiCall('admin/delete_user', {
             'user_id': user_id,
         }, function(new_status) {
-            $scope.hideRow(el, 'Deleted!');
+            $scope.hideRow(el, 'Ezabatua!');
         });
     };
 
@@ -43,7 +43,7 @@ polr.controller('AdminCtrl', function($scope, $compile) {
         apiCall('admin/delete_link', {
             'link_ending': link_ending,
         }, function(new_status) {
-            $scope.hideRow(el, 'Deleted!');
+            $scope.hideRow(el, 'Ezabatua!');
         });
     }
 
@@ -86,7 +86,7 @@ polr.controller('AdminCtrl', function($scope, $compile) {
             'link_ending': link_ending,
         }, function(next_action) {
             toastr.success(curr_action + " was successful.", "Success");
-            if (next_action == 'Disable') {
+            if (next_action == 'Ezgaitu') {
                 el.removeClass('btn-success');
                 el.addClass('btn-danger');
             } else {
@@ -123,7 +123,7 @@ polr.controller('AdminCtrl', function($scope, $compile) {
             api_active: parseInt(api_active),
             api_quota: api_quota,
             user_id: user_id,
-            title: "API Information for " + username,
+            title: "APIari buruzko informazioa. Erabiltzaile: " + username,
             body: markup
         };
         var mt_html = $scope.modal_template(modal_context);
