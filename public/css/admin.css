@@ -39,3 +39,28 @@ input.api-quota {
         table-layout: fixed;
     }
 }
+
+/**
+.nav-pills li > a {
+    border: 1px solid #fff;
+    color: #fff;
+    font-size: 15px;
+}
+.nav > li > a:hover, .nav > li > a:focus {
+    background-color: #f8f5f0;
+    color: #336633;
+    text-decoration: none;
+}
+.nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus {
+    background-color: #f8f5f0;
+    color: #336633;
+}
+
+**/
+
+@media (max-width: 991px) {
+    .panel-admin {
+        padding:10px;
+        background: rgba(255, 255, 255, 0.8);
+    }
+}

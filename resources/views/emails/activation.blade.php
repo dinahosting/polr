@@ -1,7 +1,7 @@
-<h3>Hello {{$username}}!</h3>
+<h3>Ola {{$username}}!</h3>
 
-<p>Thanks for registering at {{env('APP_NAME')}}. To use your account,
-you will need to activate it by clicking the following link:</p>
+<p>Obrigado por te rexistrares en {{env('APP_NAME')}}. Para usares a túa conta,
+precisas activala facendo click no link a seguir:</p>
 
 <br />
 
@@ -11,11 +11,11 @@ you will need to activate it by clicking the following link:</p>
 
 <br />
 
-<p>Thanks,</p>
-<p>The {{env('APP_NAME')}} team.</p>
+<p>Obrigado,</p>
+<p>A Equipa Dinahosting.</p>
 
 --
 <br />
-You received this email because someone with the IP {{$ip}} signed up
-for an account at {{env('APP_PROTOCOL')}}{{env('APP_ADDRESS')}}. If this was not you,
-you may ignore this email.
+Recibiches este correo porque alguén co IP {{$ip}} rexistrou unha conta en
+{{env('APP_PROTOCOL')}}{{env('APP_ADDRESS')}}. Se non foches ti,
+podes ignorar este email.

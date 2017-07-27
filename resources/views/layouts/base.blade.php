@@ -27,6 +27,8 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
     {{-- Leave this for stats --}}
     <meta name="generator" content="Polr {{env('POLR_VERSION')}}" />
 
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400" rel="stylesheet">
+
     {{-- Load Stylesheets --}}
     @if (env('APP_STYLESHEET'))
     <link rel="stylesheet" href="{{env('APP_STYLESHEET')}}">
@@ -44,7 +46,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 <body>
     @include('snippets.navbar')
     <div class="container">
-        <div class="content-div @if (!isset($no_div_padding)) content-div-padding @endif @if (isset($large)) jumbotron large-content-div @endif">
+        <div class="content-div @if (!isset($no_div_padding)) content-div-padding @endif @if (isset($large)) jumbotron large-content-div bottom0 @endif">
             @yield('content')
         </div>
     </div>

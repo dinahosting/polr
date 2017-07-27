@@ -43,7 +43,7 @@ polr.controller('AdminCtrl', function($scope, $compile) {
         apiCall('admin/delete_link', {
             'link_ending': link_ending,
         }, function(new_status) {
-            $scope.hideRow(el, 'Deleted!');
+            $scope.hideRow(el, 'Eliminado!');
         });
     }
 
@@ -73,7 +73,8 @@ polr.controller('AdminCtrl', function($scope, $compile) {
         apiCall('admin/toggle_api_active', {
             'user_id': user_id,
         }, function(new_status) {
-            new_status = res_value_to_text(new_status);
+            //new_status = res_value_to_text(new_status);
+            new_status = (new_status == 1) ? 'Sí' : 'Non';
             status_display_elem.text(new_status);
         });
     };
@@ -86,7 +87,7 @@ polr.controller('AdminCtrl', function($scope, $compile) {
             'link_ending': link_ending,
         }, function(next_action) {
             toastr.success(curr_action + " was successful.", "Success");
-            if (next_action == 'Disable') {
+            if (next_action == 'Deshabilitar') {
                 el.removeClass('btn-success');
                 el.addClass('btn-danger');
             } else {
@@ -106,7 +107,7 @@ polr.controller('AdminCtrl', function($scope, $compile) {
             'user_id': user_id,
             'new_quota': parseInt(new_quota)
         }, function(next_action) {
-            toastr.success("Quota successfully changed.", "Success");
+            toastr.success("Cota actualizada de forma correcta.", "Success");
         });
     }
 
@@ -123,7 +124,7 @@ polr.controller('AdminCtrl', function($scope, $compile) {
             api_active: parseInt(api_active),
             api_quota: api_quota,
             user_id: user_id,
-            title: "API Information for " + username,
+            title: "Informatión de API para " + username,
             body: markup
         };
         var mt_html = $scope.modal_template(modal_context);

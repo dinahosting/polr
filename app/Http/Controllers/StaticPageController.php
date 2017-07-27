@@ -12,4 +12,9 @@ class StaticPageController extends Controller {
         $user_role = session('role');
         return view('about', ['role' => $user_role, 'no_div_padding' => true]);
     }
+
+    public function displayApiDoc(Request $request) {
+        $user_role = session('role');
+        return view('apidoc', ['role' => $user_role, 'no_div_padding' => true]);
+    }
 }

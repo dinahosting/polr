@@ -13,8 +13,8 @@
                     @{{{body}}}
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Pechar</button>
+                    <!-- <button type="button" class="btn btn-primary">Gardar mudanzas</button> -->
                 </div>
             </div> <!-- /.modal-content -->
         </div> <!-- /.modal-dialog -->

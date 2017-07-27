@@ -1,8 +1,7 @@
-<h3>Hello {{$username}}!</h3>
+<h3>Ola {{$username}}!</h3>
 
 <p>
-    You may use the link located in this email to reset your password for your
-    account at {{env('APP_NAME')}}.
+    Podes usar o link a seguir para rexenerar o contrasinal para a túa conta en {{env('APP_NAME')}}.
 </p>
 
 <a href='{{env('APP_PROTOCOL')}}{{env('APP_ADDRESS')}}/reset_password/{{$username}}/{{$recovery_key}}'>
@@ -11,11 +10,12 @@
 
 <br />
 
-<p>Thanks,</p>
-<p>The {{env('APP_NAME')}} team.</p>
+<p>Obrigado,</p>
+<p>A Equipa Dinahosting.</p>
 
 --
 <br />
-You received this email because someone with the IP {{$ip}} requested a password reset
-for an account at {{env('APP_PROTOCOL')}}{{env('APP_ADDRESS')}}. If this was not you,
-you may ignore this email.
+Recibiches este email porque alguén co IP {{$ip}} solicitou rexenerar o contrasinal 
+para unha conta en {{env('APP_PROTOCOL')}}{{env('APP_ADDRESS')}}. Se non foches ti
+podes ignorar este email.
+

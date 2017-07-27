@@ -48,13 +48,13 @@ class UserController extends Controller {
             return redirect()->route('index');
         }
         else {
-            return redirect('login')->with('error', 'Invalid password or inactivated account. Try again.');
+            return redirect('login')->with('error', 'Contrasinal incorrecta ou conta non válida. Inténtao de novo.');
         }
     }
 
     public function performSignup(Request $request) {
         if (env('POLR_ALLOW_ACCT_CREATION') == false) {
-            return redirect(route('index'))->with('error', 'Sorry, but registration is disabled.');
+            return redirect(route('index'))->with('error', 'Sentímolo, o rexistro está desactivado.');
         }
 
         $username = $request->input('username');
@@ -63,7 +63,7 @@ class UserController extends Controller {
 
         if (!self::checkRequiredArgs([$username, $password, $email])) {
             // missing a required argument
-            return redirect(route('signup'))->with('error', 'Please fill in all required fields.');
+            return redirect(route('signup'))->with('error', 'Debes introducir todos os campos.');
         }
 
         $ip = $request->ip();
@@ -73,13 +73,13 @@ class UserController extends Controller {
 
         if ($user_exists || $email_exists) {
             // if user or email email
-            return redirect(route('signup'))->with('error', 'Sorry, your email or username already exists. Try again.');
+            return redirect(route('signup'))->with('error', 'Sentímolo, a conta de correo xa está en uso. Inténtao de novo.');
         }
 
         $email_valid = UserHelper::validateEmail($email);
 
         if ($email_valid == false) {
-            return redirect(route('signup'))->with('error', 'Please use a valid email to sign up.');
+            return redirect(route('signup'))->with('error', 'Por favor, usa un correo válido para o rexistro.');
         }
 
         $acct_activation_needed = env('POLR_ACCT_ACTIVATION');
@@ -87,11 +87,11 @@ class UserController extends Controller {
         if ($acct_activation_needed == false) {
             // if no activation is necessary
             $active = 1;
-            $response = redirect(route('login'))->with('success', 'Thanks for signing up! You may now log in.');
+            $response = redirect(route('login'))->with('success', 'Grazas por rexistrarte! Xa podes acceder.');
         }
         else {
             // email activation is necessary
-            $response = redirect(route('login'))->with('success', 'Thanks for signing up! Please confirm your email to continue..');
+            $response = redirect(route('login'))->with('success', 'Gracias por rexistrarte! Confirma o teu correo para continuar.');
             $active = 0;
         }
 
@@ -113,7 +113,7 @@ class UserController extends Controller {
             ], function ($m) use ($user) {
                 $m->from(env('MAIL_FROM_ADDRESS'), env('MAIL_FROM_NAME'));
 
-                $m->to($user->email, $user->username)->subject(env('APP_NAME') . ' account activation');
+                $m->to($user->email, $user->username)->subject(env('APP_NAME') . ' activación de conta');
             });
         }
 
@@ -122,7 +122,7 @@ class UserController extends Controller {
 
     public function performSendPasswordResetCode(Request $request) {
         if (!env('SETTING_PASSWORD_RECOV')) {
-            return redirect(route('index'))->with('error', 'Password recovery is disabled.');
+            return redirect(route('index'))->with('error', 'Recuperación de contrasinal desactivada.');
         }
 
         $email = $request->input('email');
@@ -130,7 +130,7 @@ class UserController extends Controller {
         $user = UserHelper::getUserByEmail($email);
 
         if (!$user) {
-            return redirect(route('lost_password'))->with('error', 'Email is not associated with a user.');
+            return redirect(route('lost_password'))->with('error', 'Correo non asociado a un usuario.');
         }
 
         $recovery_key = UserHelper::resetRecoveryKey($user->username);
@@ -140,10 +140,10 @@ class UserController extends Controller {
         ], function ($m) use ($user) {
             $m->from(env('MAIL_FROM_ADDRESS'), env('MAIL_FROM_NAME'));
 
-            $m->to($user->email, $user->username)->subject(env('APP_NAME') . ' Password Reset');
+            $m->to($user->email, $user->username)->subject(env('APP_NAME') . ' reestablecer contrasinal');
         });
 
-        return redirect(route('index'))->with('success', 'Password reset email sent. Check your inbox for details.');
+        return redirect(route('index'))->with('success', 'Enviado correo de recuperación. Revisa a túa caixa de entrada.');
     }
 
     public function performActivation(Request $request, $username, $recovery_key) {
@@ -156,10 +156,10 @@ class UserController extends Controller {
             $user->save();
 
             UserHelper::resetRecoveryKey($username);
-            return redirect(route('login'))->with('success', 'Account activated. You may now login.');
+            return redirect(route('login'))->with('success', 'Conta activada. Xa podes acceder.');
         }
         else {
-            return redirect(route('index'))->with('error', 'Username or activation key incorrect.');
+            return redirect(route('index'))->with('error', 'Usuario ou chave de activación incorrectas.');
         }
     }
 
@@ -178,10 +178,10 @@ class UserController extends Controller {
             $user->save();
 
             UserHelper::resetRecoveryKey($username);
-            return redirect(route('login'))->with('success', 'Password reset. You may now login.');
+            return redirect(route('login'))->with('success', 'Contrasinal reestablecido. Xa podes acceder.');
         }
         else {
-            return redirect(route('index'))->with('error', 'Username or reset key incorrect.');
+            return redirect(route('index'))->with('error', 'Usuario ou chave de reinicio incorrectas.');
         }
 
     }

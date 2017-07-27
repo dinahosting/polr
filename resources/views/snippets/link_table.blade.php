@@ -1,14 +1,15 @@
 <table class="table table-hover">
     <tr>
-        <th>Link Ending</th>
-        <th>Long Link</th>
+        <th>Final do link</th>
+        <th>Versión longa do link</th>
         <th>Clicks</th>
-        <th>Date</th>
+        <th>Data</th>
         @if ($role == 'admin')
-        <th>Creator</th>
-        <th>Disable</th>
-        <th>Delete</th>
+        <th>Creado por</th>
         @endif
+        <th>Deshabilitar</th>
+        <th>Eliminar</th>
+
 
     </tr>
     @foreach ($links as $link)
@@ -30,13 +31,14 @@
         <td>{{$link->created_at}}</td>
         @if ($role == 'admin')
         <td>{{$link->creator}}</td>
+        @endif
 
         <td>
             <a ng-click="toggleLink($event, '{{$link->short_url}}')" class='btn btn-sm @if($link->is_disabled) btn-success @else btn-danger @endif'>
                 @if ($link->is_disabled)
-                Enable
+                Habilitar
                 @else
-                Disable
+                Deshabilitar
                 @endif
             </a>
         </td>
@@ -44,11 +46,10 @@
         <td>
             <a ng-click="deleteLink($event, '{{$link->short_url}}')"
                 class='btn btn-sm btn-warning delete-link'>
-                Delete
+                Eliminar
             </a>
         </td>
 
-        @endif
 
     </tr>
     @endforeach

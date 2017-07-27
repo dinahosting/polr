@@ -21,16 +21,16 @@ Setup Completed
         <div class='setup-center'>
             <img class='setup-logo' src='/img/logo.png'>
         </div>
-        <h2>Setup Complete</h2>
-        <p>Your Polr setup is complete. To continue, you may <a href='{{route('login')}}'>login</a> or
-            access your <a href='{{route('index')}}'>home page</a>.
+        <h2>Configuración completa</h2>
+        <p>A configuración de Polr está completa. Para continuares, podes <a href='{{route('login')}}'>acceder</a> ou
+            ir para a <a href='{{route('index')}}'>páxina principal</a>.
         </p>
-        <p>Consider taking a look at the <a href='http://docs.polr.me/'>docs</a> or <a href='//github.com/cydrobolt/polr'>README</a>
-            for assistance.
+        <p>Valora darlle botarlle unha vista de ollos á <a href='http://docs.polr.me/'>documentación</a> ou o <a href='//github.com/cydrobolt/polr'>README</a>
+            para máis axuda.
         </p>
-        <p>You may also join us on IRC at <a href='//webchat.freenode.net/?channels=#polr'><code>#polr</code></a> on freenode for assistance or questions.</p>
+        <p>Tamén podes unirte a nós no IRC na sala <a href='//webchat.freenode.net/?channels=#polr'><code>#polr</code></a> de freenode para obteres axuda ou resposta ás túas dúbidas.</p>
 
-        <p>Thanks for using Polr!</p>
+        <p>Graciñas por usares Polr!</p>
     </div>
 
     <div class='col-md-3'></div>

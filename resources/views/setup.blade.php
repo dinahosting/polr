@@ -23,7 +23,7 @@ Setup
         </div>
 
         <form class='setup-form' method='POST' action='/setup'>
-            <h4>Database Configuration</h4>
+            <h4>Configuración da base de datos</h4>
 
             <p>Database Host:</p>
             <input type='text' class='form-control' name='db:host' value='localhost'>

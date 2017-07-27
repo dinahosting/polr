@@ -5,27 +5,28 @@
 @endsection
 
 @section('content')
-<div ng-controller="AdminCtrl" class="ng-root">
+<div ng-controller="AdminCtrl" class="ng-root panel-admin">
     <div class='col-md-2'>
         <ul class='nav nav-pills nav-stacked admin-nav' role='tablist'>
-            <li role='presentation' aria-controls="home" class='admin-nav-item active'><a href='#home'>Home</a></li>
+            <li role='presentation' aria-controls="home" class='admin-nav-item active'><a href='#home'>Principal</a></li>
             <li role='presentation' aria-controls="links" class='admin-nav-item'><a href='#links'>Links</a></li>
-            <li role='presentation' aria-controls="settings" class='admin-nav-item'><a href='#settings'>Settings</a></li>
+            <li role='presentation' aria-controls="settings" class='admin-nav-item'><a href='#settings'>Configuración</a></li>
 
             @if ($role == 'admin')
-            <li role='presentation' class='admin-nav-item'><a href='#admin'>Admin</a></li>
+            <li role='presentation' class='admin-nav-item'><a href='#admin'>Administrador</a></li>
+            <li role='presentation' class='admin-nav-item'><a href='#users'>Usuarios</a></li>
             @endif
 
             @if ($api_active == 1)
-            <li role='presentation' class='admin-nav-item'><a href='#developer'>Developer</a></li>
+            <li role='presentation' class='admin-nav-item'><a href='#developer'>Desenvolvedor</a></li>
             @endif
         </ul>
     </div>
     <div class='col-md-10'>
         <div class="tab-content">
             <div role="tabpanel" class="tab-pane active" id="home">
-                <h2>Welcome to your {{env('APP_NAME')}} dashboard!</h2>
-                <p>Use the links on the left hand side to navigate your {{env('APP_NAME')}} dashboard.</p>
+                <h2> Damosche as boasvindas ao teu panel de {{env('APP_NAME')}}!</h2>
+                <p>Usa os links da esquerda para navegares polo teu panel de {{env('APP_NAME')}}.</p>
             </div>
 
             <div role="tabpanel" class="tab-pane" id="links">
@@ -38,10 +39,10 @@
             </div>
 
             <div role="tabpanel" class="tab-pane" id="settings">
-                <h3>Change Password</h3>
+                <h3>Mudar contrasinal</h3>
                 <form action='/admin/action/change_password' method='POST'>
-                    Old Password: <input class="form-control password-box" type='password' name='current_password' />
-                    New Password: <input class="form-control password-box" type='password' name='new_password' />
+                    Contrasinal vello: <input class="form-control password-box" type='password' name='current_password' />
+                    Contrasinal novo: <input class="form-control password-box" type='password' name='new_password' />
                     <input type="hidden" name='_token' value='{{csrf_token()}}' />
                     <input type='submit' class='btn btn-success change-password-btn'/>
                 </form>
@@ -56,39 +57,40 @@
                 ])
 
                 {!! $admin_links->fragment('admin')->render() !!}
-
-                <h3>Users</h3>
+            </div>
+            <div role="tabpanel" class="tab-pane" id="users">
+                <h3>Usuarios</h3>
                 @include('snippets.user_table', [
                     'users' => $admin_users
                 ])
 
-                {!! $admin_users->fragment('admin')->render() !!}
+                {!! $admin_users->fragment('users')->render() !!}
 
             </div>
             @endif
 
             @if ($api_active == 1)
             <div role="tabpanel" class="tab-pane" id="developer">
-                <h3>Developer</h3>
+                <h3>Desenvolvedor</h3>
 
-                <p>API keys and documentation for developers.</p>
+                <p>API keys e documentación para desenvolvedores.</p>
                 <p>
-                    Documentation:
-                    <a href='http://docs.polr.me/en/latest/developer-guide/api/'>http://docs.polr.me/en/latest/developer-guide/api/</a>
+                    Documentación:
+                    <a target="_blank" href='{{env('APP_PROTOCOL')}}{{env('APP_ADDRESS')}}/apidoc/'>{{env('APP_PROTOCOL')}}{{env('APP_ADDRESS')}}/apidoc/</a>
                 </p>
 
                 <h4>API Key: </h4>
                 <div class='row'>
                     <div class='col-md-8'>
-                        <input class='form-control status-display' disabled type='text' value='{{$api_key}}'>
+                        <input class='form-control status-display' readonly type='text' value='{{$api_key}}'>
                     </div>
                     <div class='col-md-4'>
-                        <a href='#' ng-click="generateNewAPIKey($event, '{{$user_id}}', true)" id='api-reset-key' class='btn btn-danger'>Reset</a>
+                        <a href='#' ng-click="generateNewAPIKey($event, '{{$user_id}}', true)" id='api-reset-key' class='btn btn-danger'>Reiniciar</a>
                     </div>
                 </div>
 
 
-                <h4>API Quota: </h4>
+                <h4>Cuota para o API: </h4>
                 <h2 class='api-quota'>
                     @if ($api_quota == -1)
                         unlimited
@@ -96,7 +98,7 @@
                         <code>{{$api_quota}}</code>
                     @endif
                 </h2>
-                <span> requests per minute</span>
+                <span> peticións por minuto</span>
             </div>
             @endif
         </div>
@@ -119,20 +121,20 @@
 <script id="api-modal-template" type="text/x-handlebars-template">
     <div>
         <p>
-            <span>API Active</span>:
+            <span>API Activa</span>:
 
             <code class='status-display'>
-                @{{#if api_active}}True@{{else}}False@{{/if}}</code>
+                @{{#if api_active}}Sí@{{else}}Non@{{/if}}</code>
 
-            <a ng-click="toggleAPIStatus($event, '@{{user_id}}')" class='btn btn-xs btn-success'>toggle</a>
+            <a ng-click="toggleAPIStatus($event, '@{{user_id}}')" class='btn btn-xs btn-success'>mudar</a>
         </p>
         <p>
             <span>API Key: </span><code class='status-display'>@{{api_key}}</code>
-            <a ng-click="generateNewAPIKey($event, '@{{user_id}}', false)" class='btn btn-xs btn-danger'>reset</a>
+            <a ng-click="generateNewAPIKey($event, '@{{user_id}}', false)" class='btn btn-xs btn-danger'>reiniciar</a>
         </p>
         <p>
-            <span>API Quota (req/min, -1 for unlimited):</span> <input type='number' class='form-control api-quota' value='@{{api_quota}}'>
-            <a ng-click="updateAPIQuota($event, '@{{user_id}}')" class='btn btn-xs btn-warning'>change</a>
+            <span>API Cuta (req/min, -1 para ilimitado):</span> <input type='number' class='form-control api-quota' value='@{{api_quota}}'>
+            <a ng-click="updateAPIQuota($event, '@{{user_id}}')" class='btn btn-xs btn-warning'>mudar</a>
         </p>
     </div>
 </script>

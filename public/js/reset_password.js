@@ -3,7 +3,7 @@ $('#passwordConfirm').on('keyup', function() {
     var confirm_password = $('#passwordConfirm').val();
 
     if (password != confirm_password) {
-        this.setCustomValidity("Passwords do not match.");
+        this.setCustomValidity("Os contrasinais non coinciden.");
     } else {
         this.setCustomValidity('');
     }

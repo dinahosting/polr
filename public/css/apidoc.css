@@ -1,4 +1,9 @@
+body {
+    background-image: none;
+}
+
 .content-div {
+    background: rgba(255,255,255, 0.7);
     padding-top: 20px;
     text-align: left;
 }
@@ -14,7 +19,6 @@
     margin-top: 30px;
     margin-bottom: 3em;
     width: auto;
-    color: white !important;
 }
 
 .logo-img {
@@ -27,11 +31,4 @@
     -webkit-animation: colorpulse 20s infinite;
     animation: colorpulse 20s infinite;
     -moz-animation: colorpulse 20s infinite;
-}
-
-@media (max-width: 600px) {
-    .content-div {
-        padding: 10px;
-        background: rgba(255, 255, 255, 0.8);
-    }
 }

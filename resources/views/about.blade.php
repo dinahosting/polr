@@ -6,27 +6,30 @@
 @endsection
 
 @section('content')
-<div class='well logo-well'>
+<!-- <div class='well logo-well'>
     <img class='logo-img' src='/img/logo.png' />
-</div>
+</div> -->
 
 <div class='about-contents'>
     @if ($role == "admin")
     <dl>
-        <p>Build Information</p>
-        <dt>Version: {{env('POLR_VERSION')}}</dt>
-        <dt>Release date: {{env('POLR_RELDATE')}}</dt>
-        <dt>App Install: {{env('APP_NAME')}} on {{env('APP_ADDRESS')}} on {{env('POLR_GENERATED_AT')}}<dt>
+        <p>Información do software</p>
+        <dt>Versión: {{env('POLR_VERSION')}}</dt>
+        <dt>Data de lanzamento: {{env('POLR_RELDATE')}}</dt>
+        <dt>Instalación: {{env('APP_NAME')}} en {{env('APP_ADDRESS')}} en {{env('POLR_GENERATED_AT')}}<dt>
     </dl>
-    <p>You are seeing the information above because you are logged in as an administrator.</p>
+    <p>Estás a ver esta información na medida en que fixeches login como persoa administradora.</p>
     @endif
 
-    <p>{{env('APP_NAME')}} is powered by Polr 2, an open source, minimalist link shortening platform.
-        Learn more at <a href='https://github.com/Cydrobolt/polr'>its Github page</a> or its <a href="//project.polr.me">project site</a>.
+    <p>Ola! É un pracer térmoste aquí!</p>
+    <p><strong>i.gal</strong> é unha iniciativa da <a href="http://www.puntogal.org/">Asociación Puntogal</a>, <a href="https://www.agasol.gal/">Agasol</a> e da <a href="https://dinahosting.com">dinahosting</a> para a orgullosa internet do Pobo Galego. Desexamos que a goces tanto coma nós ao levar o proxecto adiante. Agardamos que che resulte útil no teu día a día. Graciñas!</p>
+
+    <p>{{env('APP_NAME')}} baséase en Polr 2, unha plataforma minimalista de código aberto para encurtar URL.
+       Descobre moito máis sobre o proxecto <a href='https://github.com/Cydrobolt/polr'>na súa páxina de Github</a> ou no seu <a href="//project.polr.me">sitio web</a>.
         <br />Polr is licensed under the GNU GPL License.
     </p>
 </div>
-<a href='#' class='btn btn-success license-btn'>More Information</a>
+<a href='#' class='btn btn-success license-btn'>Máis información</a>
 <pre class="license" id="gpl-license">
 Copyright (C) 2013-2016 Chaoyi Zha
 

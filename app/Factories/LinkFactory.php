@@ -42,8 +42,7 @@ class LinkFactory {
         $is_already_short = LinkHelper::checkIfAlreadyShortened($long_url);
 
         if ($is_already_short) {
-            throw new \Exception('Sorry, but your link already
-                looks like a shortened URL.');
+            throw new \Exception('Sentímolo mais o teu link parece que xa é un URL encurtado!');
         }
 
         if (!$is_secret && !$custom_ending && (LinkHelper::longLinkExists($long_url) !== false)) {
@@ -57,13 +56,12 @@ class LinkFactory {
             // has custom ending
             $ending_conforms = LinkHelper::validateEnding($custom_ending);
             if (!$ending_conforms) {
-                throw new \Exception('Sorry, but custom endings
-                    can only contain alphanumeric characters, hyphens, and underscores.');
+                throw new \Exception('Sentímolo mais os URL personalizados só poden conter números, guións e guións baixos!');
             }
 
             $ending_in_use = LinkHelper::linkExists($custom_ending);
             if ($ending_in_use) {
-                throw new \Exception('Sorry, but this URL ending is already in use.');
+                throw new \Exception('Sentímolo mais este URL personalizado xa está pillado!');
             }
 
             $link_ending = $custom_ending;

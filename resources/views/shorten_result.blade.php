@@ -5,9 +5,9 @@
 @endsection
 
 @section('content')
-<h3>Shortened URL</h3>
+<h3>URL curto</h3>
 <input type='text' class='result-box form-control' value='{{$short_url}}' />
-<a href='{{route('index')}}' class='btn btn-info back-btn'>Shorten another</a>
+<a href='{{route('index')}}' class='btn btn-info back-btn'>Encurta outro</a>
 @endsection
 
 @section('js')

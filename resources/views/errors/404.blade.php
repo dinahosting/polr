@@ -2,5 +2,6 @@
 
 @section('content')
 <h1>404</h1>
-<p>This page could not be found.</p>
+<p>Non puidemos encontrar esta páxina!</p>
+<p>Estache ben a cousa!</p>
 @endsection

@@ -1,23 +1,42 @@
+h1{
+    font-size: 112px !important;
+}
+
 .custom-url-field {
     display: inline;
     width: 100px;
 }
 
 .site-url-field {
-    color: green;
+    /*color: green;*/
     display: inline;
 }
 
-.long-link-input {
-    margin-bottom: 25px;
-}
-
 .tips {
-    margin-top: 20px;
+    margin-top: 0px;
+    margin-bottom: 10px;
 }
 
-.check-btn {
+.formulario {
+    background: #FBFBFB;
+    color: #000000;
+    border-radius: 10px 10px 10px 10px;
+    padding: 15px;
+}
+
+.check-btn
+
+{
     margin-bottom: 30px;
+}
+
+.check-btn,
+.check-btn:hover,
+.check-btn:visited,
+.check-btn:active
+{
+    background: black !important;
+    color: white !important;
 }
 
 #link-availability-status {
@@ -26,4 +45,125 @@
 
 .visibility-toggler {
     margin-bottom: 2em;
+}
+
+.text-muted {
+    font-size: 16px;
+    color: black;
+}
+
+.btn-acortador,
+.btn-acortador:hover,
+.btn-acortador:active,
+.btn-acortador:focus
+{
+    width: 79px;
+    height: 47px;
+    font-size: 50px;
+    background: url("/img/boton.png") black center no-repeat;
+    background-size: cover;
+    border-radius: 10px 10px 10px 10px;
+    color: #009ee0;
+}
+
+.btn-success {
+    color: white !important;
+}
+
+.linkOptions,
+.linkOptions:active,
+.linkOptions:visited,
+.linkOptions:hover {
+    color: black !important;
+    padding-top: 60px;
+    display: block;
+}
+
+body {
+    /**background-image: none;*/
+    padding-bottom: 0;
+}
+
+.optionPadding {
+    padding-top: 10px;
+}
+
+.divAvailability {
+    height: 60px;
+}
+
+.buttonSpaceTop {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.logo40 {
+    height: 40px;
+}
+
+.logos-list {
+    list-style-type: none;
+    padding:0;
+}
+
+.logos-list li
+{
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.logos-list:last-child {
+    margin: 0
+}
+
+@media (max-width: 768px) {
+    .btn-acortador {
+        margin-top: 10px;
+    }
+
+    .linkOptions,
+    .linkOptions:active,
+    .linkOptions:visited,
+    .linkOptions:hover {
+        padding-top: 15px;
+    }
+}
+
+.linkOptions,
+.linkOptions:active,
+.linkOptions:visited,
+.linkOptions:hover,
+.text-muted,
+.jumbotron p {
+    font-weight: 500;
+}
+
+.formulario {
+    border: 3px solid #009ee0;
+}
+
+.custom-url-field,
+.long-link-input {
+    border: 2px solid black;
+}
+
+.custom-url-field:focus,
+.long-link-input:focus {
+    border: 2px solid #009ee0;
+}
+
+.long-link-input::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+    color: black;
+}
+
+.long-link-input::-moz-placeholder { /* Firefox 19+ */
+    color: black;
+}
+
+.long-link-input:-moz-placeholder { /* Firefox 18- */
+    color: black;
+}
+
+.long-link-input:-ms-input-placeholder { /* IE 10+ */
+    color: black;
 }
